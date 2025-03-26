@@ -1,4 +1,7 @@
 package com.maquinaturing.producto.abstracto;
 
-public class HaltChecker {
+public abstract class HaltChecker {
+
+    public abstract boolean analizar(Programa programa, Programa entrada);
+
 }

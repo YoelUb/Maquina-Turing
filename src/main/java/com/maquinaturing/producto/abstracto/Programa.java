@@ -1,4 +1,6 @@
 package com.maquinaturing.producto.abstracto;
 
-public class Programa {
+public interface Programa {
+
+    void ejecutar();
 }
