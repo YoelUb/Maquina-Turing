@@ -11,4 +11,10 @@ public class ContadorSubida implements Programa {
             num++;
         }
     }
+
+    @Override
+    public boolean seDetiene(){
+
+        return false;
+    }
 }

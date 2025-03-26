@@ -21,4 +21,9 @@ public class Reverser implements Programa {
             return;
         }
     }
+
+    @Override
+    public boolean seDetiene() {
+        throw new UnsupportedOperationException("Reverser no puede decidir si se detiene");
+    }
 }
