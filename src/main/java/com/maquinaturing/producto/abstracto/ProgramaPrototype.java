@@ -1,9 +1,8 @@
 package com.maquinaturing.producto.abstracto;
 
-public interface ProgramaPrototype  implements Cloneable {
+public abstract ProgramaPrototype  implements Cloneable {
 
-    void ejecutar();
-    boolean seDetiene();
+    public abstract void ejecutar(String cinta);
 }
 
 

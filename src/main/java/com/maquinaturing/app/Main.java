@@ -2,6 +2,12 @@ package com.maquinaturing.app;
 
 import com.maquinaturing.producto.abstracto.ProgramaPrototype;
 
+import com.maquinaturing.producto.concreto.ContadorBajadaPrototype;
+import com.maquinaturing.producto.concreto.ContadorSubidaPrototype;
+import com.maquinaturing.producto.concreto.ReverserPrototype;
+import com.maquinaturing.prototype.ProgramaPrototypeRegistry;
+
+
 public class Main {
     public static void main(String[] args) {
         // Registrar prototipos
@@ -21,9 +27,3 @@ public class Main {
 
     }
 }
-
-import com.maquinaturing.producto.concreto.ContadorBajadaPrototype;
-import com.maquinaturing.producto.concreto.ContadorSubidaPrototype;
-import com.maquinaturing.producto.concreto.ReverserPrototype;
-import com.maquinaturing.prototype.ProgramaPrototypeRegistry;
-

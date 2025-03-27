@@ -1,8 +1,9 @@
 package com.maquinaturing.producto.concreto;
 
-import com.maquinaturing.producto.abstracto.Programa;
+import com.maquinaturing.producto.abstracto.ProgramaPrototype;
+import com.maquinaturing.prototype.ProgramaPrototypeRegistry;
 
-public class ContadorSubidaPrototype implements Programa {
+public class ContadorSubidaPrototype extends com.maquinaturing.producto.abstracto.ProgramaPrototype {
     @Override
     public void ejecutar() {
         int num = 1;
