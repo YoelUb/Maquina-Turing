@@ -1,29 +1,20 @@
 package com.maquinaturing.producto.concreto;
 
 import com.maquinaturing.producto.abstracto.HaltChecker;
-import com.maquinaturing.producto.abstracto.Programa;
+import com.maquinaturing.producto.abstracto.ProgramaPrototype;
 
-public class ReverserPrototype implements Programa {
-    private final HaltChecker checker;
-    private final Programa programa;
 
-    public ReverserPrototype(HaltChecker checker, Programa programa) {
-        this.checker = checker;
-        this.programa = programa;
+public class ReverserPrototype extends ProgramaPrototype {
+
+    @Override
+    public void ejecutar(String cinta) {
+        StringBuilder builder = new StringBuilder(cinta);
+        System.out.println("Cadena invertida: " + builder.reverse());
     }
 
     @Override
-    public void ejecutar() {
-        boolean seDetiene = checker.analizar(programa, programa);
-        if (seDetiene) {
-            while (true) {}
-        } else {
-            return;
-        }
+    public ProgramaPrototype clone() {
+        return new ReverserPrototype();
     }
 
-    @Override
-    public boolean seDetiene() {
-        throw new UnsupportedOperationException("ReverserPrototype no puede decidir si se detiene");
-    }
 }

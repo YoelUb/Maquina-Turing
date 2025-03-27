@@ -8,6 +8,7 @@ import com.maquinaturing.producto.concreto.ReverserPrototype;
 import com.maquinaturing.prototype.ProgramaPrototypeRegistry;
 
 
+
 public class Main {
     public static void main(String[] args) {
         // Registrar prototipos
@@ -16,14 +17,15 @@ public class Main {
         ProgramaPrototypeRegistry.registrar("reverser", new ReverserPrototype());
 
         // Clonar y ejecutar programas
-        ProgramaPrototype subida = ProgramaPrototypeRegistry.obtener("subida");
-        subida.ejecutar("123");
-
         ProgramaPrototype bajada = ProgramaPrototypeRegistry.obtener("bajada");
-        bajada.ejecutar("321");
+        bajada.ejecutar("10");
 
         ProgramaPrototype reverser = ProgramaPrototypeRegistry.obtener("reverser");
         reverser.ejecutar("abc");
+
+        ProgramaPrototype subida = ProgramaPrototypeRegistry.obtener("subida");
+        // Linea comentada para que el programa no sea infinito:
+        // subida.ejecutar("10");
 
     }
 }
