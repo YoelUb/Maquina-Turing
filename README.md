@@ -19,11 +19,10 @@ Además, se incluye una interfaz gráfica construida con **JavaFX**, desde la cu
 - JavaFX configurado (ya incluido vía Maven)
 
 ## Ejecutar desde IntelliJ IDEA
-Asegúrate de que LauncherApp.java es tu clase principal.
 
 Usa el plugin javafx-maven-plugin.
 
-Click derecho > Run LauncherApp.main().
+Click derecho > Run Main.main().
 
 ## 🧩 ¿Qué hace la app?
 Al iniciar, la interfaz JavaFX te permite elegir uno de los tres patrones de creación. Luego puedes seleccionar el tipo de programa:
