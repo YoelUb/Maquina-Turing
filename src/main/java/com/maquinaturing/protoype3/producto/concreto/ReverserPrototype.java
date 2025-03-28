@@ -5,6 +5,10 @@ import com.maquinaturing.protoype3.producto.abstracto.ProgramaPrototype;
 
 public class ReverserPrototype extends ProgramaPrototype {
 
+    public ReverserPrototype() {
+        super();
+    }
+
     @Override
     public void ejecutar(String cinta) {
         StringBuilder builder = new StringBuilder(cinta);
