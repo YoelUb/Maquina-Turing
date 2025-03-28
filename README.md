@@ -60,5 +60,55 @@ Cada patrón genera el mismo comportamiento observable pero con un enfoque de di
 
 ## 📁 Estructura del proyecto
 
-<pre lang="markdown"> ```txt src/main/java/ └── com └── maquinaturing ├── abstractfactory │ ├── fabrica │ │ ├── abstracta │ │ │ └── ProgramaFactory.java │ │ └── concreta │ │ ├── ContadorBajadaFactory.java │ │ ├── ContadorSubidaFactory.java │ │ └── ReverserFactory.java │ └── producto │ ├── abstracto │ │ ├── HaltChecker.java │ │ └── Programa.java │ └── concreto │ ├── ContadorBajada.java │ ├── ContadorSubida.java │ ├── HaltCheckerImpl.java │ └── Reverser.java ├── app │ ├── Launcher.java │ └── Main.java ├── builder3 │ ├── builder │ │ ├── ContadorBajadaBuilder.java │ │ ├── ContadorSubidaBuilder.java │ │ ├── ProgramaBuilder.java │ │ └── ReverserBuilder.java │ ├── director │ │ └── ProgramaDirector.java │ └── producto │ ├── ContadorBajada.java │ ├── ContadorSubida.java │ ├── HaltCheckerImpl.java │ ├── Programa.java │ └── Reverser.java └── protoype3 ├── producto │ ├── abstracto │ │ ├── HaltChecker.java │ │ └── ProgramaPrototype.java │ └── concreto │ ├── ContadorBajadaPrototype.java │ ├── ContadorSubidaPrototype.java │ ├── HaltCheckerImpl.java │ └── ReverserPrototype.java └── prototype └── ProgramaPrototypeRegistry.java ``` </pre>
+```txt
+src/main/java/
+└── com
+    └── maquinaturing
+        ├── abstractfactory
+        │   ├── fabrica
+        │   │   ├── abstracta
+        │   │   │   └── ProgramaFactory.java
+        │   │   └── concreta
+        │   │       ├── ContadorBajadaFactory.java
+        │   │       ├── ContadorSubidaFactory.java
+        │   │       └── ReverserFactory.java
+        │   └── producto
+        │       ├── abstracto
+        │       │   ├── HaltChecker.java
+        │       │   └── Programa.java
+        │       └── concreto
+        │           ├── ContadorBajada.java
+        │           ├── ContadorSubida.java
+        │           ├── HaltCheckerImpl.java
+        │           └── Reverser.java
+        ├── app
+        │   ├── LauncherApp.java
+        │   └── Main.java
+        ├── builder
+        │   ├── builder
+        │   │   ├── ContadorBajadaBuilder.java
+        │   │   ├── ContadorSubidaBuilder.java
+        │   │   ├── ProgramaBuilder.java
+        │   │   └── ReverserBuilder.java
+        │   ├── director
+        │   │   └── ProgramaDirector.java
+        │   └── producto
+        │       ├── ContadorBajada.java
+        │       ├── ContadorSubida.java
+        │       ├── HaltCheckerImpl.java
+        │       ├── Programa.java
+        │       └── Reverser.java
+        └── protoype
+            ├── producto
+            │   ├── abstracto
+            │   │   ├── HaltChecker.java
+            │   │   └── ProgramaPrototype.java
+            │   └── concreto
+            │       ├── ContadorBajadaPrototype.java
+            │       ├── ContadorSubidaPrototype.java
+            │       ├── HaltCheckerImpl.java
+            │       └── ReverserPrototype.java
+            └── prototype
+                └── ProgramaPrototypeRegistry.java
+```
 
