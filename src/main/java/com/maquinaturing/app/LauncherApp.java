@@ -1,12 +1,22 @@
 package com.maquinaturing.app;
 
+import com.maquinaturing.abstractfactory.producto.abstracto.Programa;
+import com.maquinaturing.builder3.builder.ProgramaBuilder;
 import javafx.application.Application;
+import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.TextArea;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+
 public class LauncherApp extends Application {
 
     private TextArea output;
@@ -41,38 +51,30 @@ public class LauncherApp extends Application {
     }
 
     private void runAbstractFactory() {
+        List<String> opciones = Arrays.asList("Contador de subida", "Contador de bajada");
+        ChoiceDialog<String> dialog = new ChoiceDialog<>("Contador de bajada", opciones);
+        dialog.setTitle("Seleccionar tipo de programa");
+        dialog.setHeaderText("Abstract Factory - ¿Qué programa quieres ejecutar?");
+        dialog.setContentText("Elige una opción:");
+
+        Optional<String> resultado = dialog.showAndWait();
+        if (resultado.isEmpty()) return;
+
         output.setText("Ejecutando Abstract Factory...\n");
 
-        var factory = new com.maquinaturing.abstractfactory.fabrica.concreta.ContadorBajadaFactory();
-        var programa = factory.crearPrograma();
+        Programa programa;
+        if (resultado.get().equals("Contador de subida")) {
+            var factory = new com.maquinaturing.abstractfactory.fabrica.concreta.ContadorSubidaFactory();
+            programa = factory.crearPrograma();
+        } else {
+            var factory = new com.maquinaturing.abstractfactory.fabrica.concreta.ContadorBajadaFactory();
+            programa = factory.crearPrograma();
+        }
 
-        // Redirigir la salida estándar (System.out) para capturarla
-        java.io.ByteArrayOutputStream baos = new java.io.ByteArrayOutputStream();
-        java.io.PrintStream ps = new java.io.PrintStream(baos);
-        java.io.PrintStream oldOut = System.out;
-        System.setOut(ps);
-
-        programa.ejecutar(); // Esto imprimirá a la terminal, pero ahora será capturado
-
-        System.out.flush();
-        System.setOut(oldOut); // Restaurar salida estándar
-
-        // Mostrar la salida capturada en el TextArea
-        output.appendText(baos.toString());
-    }
-
-    private void runBuilder() {
-        output.setText("Ejecutando Builder...\n");
-
-        var builder = new com.maquinaturing.builder3.builder.ContadorBajadaBuilder();
-        var director = new com.maquinaturing.builder3.director.ProgramaDirector();
-        director.setBuilder(builder);
-        var programa = director.construirPrograma();
-
-        // Redirigir System.out
-        java.io.ByteArrayOutputStream baos = new java.io.ByteArrayOutputStream();
-        java.io.PrintStream ps = new java.io.PrintStream(baos);
-        java.io.PrintStream oldOut = System.out;
+        // Capturar System.out
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        PrintStream ps = new PrintStream(baos);
+        PrintStream oldOut = System.out;
         System.setOut(ps);
 
         programa.ejecutar();
@@ -84,33 +86,88 @@ public class LauncherApp extends Application {
     }
 
 
-    private void runPrototype() {
-        output.setText("Ejecutando Prototype...\n");
+    private void runBuilder() {
+        List<String> opciones = Arrays.asList("Contador de subida", "Contador de bajada");
+        ChoiceDialog<String> dialog = new ChoiceDialog<>("Contador de bajada", opciones);
+        dialog.setTitle("Seleccionar tipo de programa");
+        dialog.setHeaderText("Builder - ¿Qué programa quieres ejecutar?");
+        dialog.setContentText("Elige una opción:");
 
-        com.maquinaturing.protoype3.prototype.ProgramaPrototypeRegistry.registrar(
-                "bajada", new com.maquinaturing.protoype3.producto.concreto.ContadorBajadaPrototype());
-        com.maquinaturing.protoype3.prototype.ProgramaPrototypeRegistry.registrar(
-                "reverser", new com.maquinaturing.protoype3.producto.concreto.ReverserPrototype());
+        Optional<String> resultado = dialog.showAndWait();
+        if (resultado.isEmpty()) return;
 
-        // Redirigir System.out
-        java.io.ByteArrayOutputStream baos = new java.io.ByteArrayOutputStream();
-        java.io.PrintStream ps = new java.io.PrintStream(baos);
-        java.io.PrintStream oldOut = System.out;
+        output.setText("Ejecutando Builder...\n");
+
+        ProgramaBuilder builder;
+        if (resultado.get().equals("Contador de subida")) {
+            builder = new com.maquinaturing.builder3.builder.ContadorSubidaBuilder();
+        } else {
+            builder = new com.maquinaturing.builder3.builder.ContadorBajadaBuilder();
+        }
+
+        var director = new com.maquinaturing.builder3.director.ProgramaDirector();
+        director.setBuilder(builder);
+        var programa = director.construirPrograma();
+
+        // Capturar System.out
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        PrintStream ps = new PrintStream(baos);
+        PrintStream oldOut = System.out;
         System.setOut(ps);
 
-        // Clonar y ejecutar programas
-        var bajada = com.maquinaturing.protoype3.prototype.ProgramaPrototypeRegistry.obtener("bajada");
-        if (bajada != null) bajada.ejecutar("10");
-
-        var reverser = com.maquinaturing.protoype3.prototype.ProgramaPrototypeRegistry.obtener("reverser");
-        if (reverser != null) reverser.ejecutar("abc");
-
+        programa.ejecutar();
 
         System.out.flush();
         System.setOut(oldOut);
 
         output.appendText(baos.toString());
     }
+
+
+
+    private void runPrototype() {
+        List<String> opciones = Arrays.asList("Contador de subida", "Contador de bajada");
+        ChoiceDialog<String> dialog = new ChoiceDialog<>("Contador de bajada", opciones);
+        dialog.setTitle("Seleccionar tipo de programa");
+        dialog.setHeaderText("Prototype - ¿Qué programa quieres ejecutar?");
+        dialog.setContentText("Elige una opción:");
+
+        Optional<String> resultado = dialog.showAndWait();
+        if (resultado.isEmpty()) return;
+
+        output.setText("Ejecutando Prototype...\n");
+
+        com.maquinaturing.protoype3.prototype.ProgramaPrototypeRegistry.registrar(
+                "subida", new com.maquinaturing.protoype3.producto.concreto.ContadorSubidaPrototype());
+        com.maquinaturing.protoype3.prototype.ProgramaPrototypeRegistry.registrar(
+                "bajada", new com.maquinaturing.protoype3.producto.concreto.ContadorBajadaPrototype());
+
+        String clave = resultado.get().toLowerCase().split(" ")[2];
+        var prototipo = com.maquinaturing.protoype3.prototype.ProgramaPrototypeRegistry.obtener(clave);
+
+        if (prototipo == null) {
+            output.appendText("Prototipo no encontrado.\n");
+            return;
+        }
+
+        // Capturar System.out
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        PrintStream ps = new PrintStream(baos);
+        PrintStream oldOut = System.out;
+        System.setOut(ps);
+
+        if (clave.equals("reverser")) {
+            prototipo.ejecutar("abcde");
+        } else {
+            prototipo.ejecutar("10");
+        }
+
+        System.out.flush();
+        System.setOut(oldOut);
+
+        output.appendText(baos.toString());
+    }
+
 
 
 
