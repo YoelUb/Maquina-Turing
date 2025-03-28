@@ -37,17 +37,17 @@ Al iniciar, la interfaz JavaFX te permite elegir uno de los tres patrones de cre
 Cada patrón genera el mismo comportamiento observable pero con un enfoque de diseño distinto.
 
 ## 🧠 Patrones de diseño implementados
-###Abstract Factory
+**Abstract Factory**
 Crea familias de objetos relacionados (Programa y HaltChecker).
 
 Ubicación: abstractfactory/fabrica/...
 
-###Builder
+**Builder**
 Construye paso a paso un programa (configurable).
 
 Ubicación: builder/builder, builder/director, builder/producto
 
-###Prototype
+**Prototype**
 Clona programas existentes desde un registro.
 
 Ubicación: protoype/producto/...
