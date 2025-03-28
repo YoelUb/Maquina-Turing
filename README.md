@@ -38,30 +38,33 @@ Cada patrón genera el mismo comportamiento observable pero con un enfoque de di
 
 ## 🧠 Patrones de diseño implementados
 **Abstract Factory**
-Crea familias de objetos relacionados (Programa y HaltChecker).
 
-Ubicación: abstractfactory/fabrica/...
+- Crea familias de objetos relacionados (Programa y HaltChecker).
+
+- Ubicación: abstractfactory/fabrica/...
 
 **Builder**
-Construye paso a paso un programa (configurable).
 
-Ubicación: builder/builder, builder/director, builder/producto
+- Construye paso a paso un programa (configurable).
+
+- Ubicación: builder/builder, builder/director, builder/producto
 
 **Prototype**
-Clona programas existentes desde un registro.
 
-Ubicación: protoype/producto/...
+- Clona programas existentes desde un registro.
 
-Registro de prototipos: ProgramaPrototypeRegistry
+- Ubicación: protoype/producto/...
+
+- Registro de prototipos: ProgramaPrototypeRegistry
 
 ## 🎮 Programas disponibles
 Cada patrón puede ejecutar diferentes programas simulados:
 
-Contador de bajada → cuenta de 10 a 0
+- **Contador de bajada** → cuenta de 10 a 0
 
-Contador de subida → (limitado a evitar bucle infinito)
+- **Contador de subida** → (limitado a evitar bucle infinito)
 
-Reverser → invierte una cadena dada
+- **Reverser** → invierte una cadena dada
 
 ## 📁 Estructura del proyecto
 
