@@ -1,0 +1,10 @@
+@startuml
+' Diagrama de objetos para Builder
+object director as "ProgramaDirector"
+object builder as "ReverserBuilder"
+object reverser as "Reverser"
+
+director --> builder : setBuilder(builder)
+builder --> reverser : buildPrograma()
+director --> reverser : getPrograma()
+@enduml

@@ -1,0 +1,11 @@
+@startuml
+object mainApp
+
+object factory as "ReverserFactory"
+object programa as "Reverser"
+object checker as "HaltCheckerImpl"
+
+mainApp --> factory : usa
+factory --> programa : crea con crearPrograma()
+factory --> checker : crea con crearHaltChecker()
+@enduml

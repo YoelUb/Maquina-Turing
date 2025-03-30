@@ -1,0 +1,32 @@
+@startuml
+package "App" {
+  [LauncherApp]
+  [Main]
+}
+
+package "AbstractFactory" {
+  [ProgramaFactory]
+  [ContadorSubidaFactory]
+  [ContadorBajadaFactory]
+  [ReverserFactory]
+}
+
+package "Productos" {
+  [ContadorSubida]
+  [ContadorBajada]
+  [Reverser]
+  [HaltCheckerImpl]
+}
+
+[Main] --> [ProgramaFactory]
+[ProgramaFactory] --> [ReverserFactory]
+[ProgramaFactory] --> [ContadorSubidaFactory]
+[ProgramaFactory] --> [ContadorBajadaFactory]
+
+[ReverserFactory] --> [Reverser]
+[ContadorSubidaFactory] --> [ContadorSubida]
+[ContadorBajadaFactory] --> [ContadorBajada]
+
+[Main] --> [HaltCheckerImpl]
+
+@enduml

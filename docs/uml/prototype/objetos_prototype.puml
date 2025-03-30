@@ -1,0 +1,10 @@
+@startuml
+object prototypeRegistry
+
+object reverserPrototype
+
+object clonedReverser
+
+prototypeRegistry --> reverserPrototype : "reverser"
+reverserPrototype --> clonedReverser : clonar()
+@enduml

@@ -1,0 +1,18 @@
+@startuml
+package "Prototype" {
+  [ProgramaPrototypeRegistry]
+  [ProgramaPrototype]
+  [ReverserPrototype]
+  [ContadorSubidaPrototype]
+  [ContadorBajadaPrototype]
+}
+
+[ProgramaPrototypeRegistry] --> [ReverserPrototype]
+[ProgramaPrototypeRegistry] --> [ContadorSubidaPrototype]
+[ProgramaPrototypeRegistry] --> [ContadorBajadaPrototype]
+
+[ReverserPrototype] ..|> [ProgramaPrototype]
+[ContadorSubidaPrototype] ..|> [ProgramaPrototype]
+[ContadorBajadaPrototype] ..|> [ProgramaPrototype]
+@enduml
+com
