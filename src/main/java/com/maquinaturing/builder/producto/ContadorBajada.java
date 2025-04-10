@@ -1,4 +1,4 @@
-package com.maquinaturing.builder3.producto;
+package com.maquinaturing.builder.producto;
 
 public class ContadorBajada extends Programa {
     private int inicio = 10;

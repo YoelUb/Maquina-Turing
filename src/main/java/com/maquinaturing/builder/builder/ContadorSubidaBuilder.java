@@ -1,8 +1,8 @@
-package com.maquinaturing.builder3.builder;
+package com.maquinaturing.builder.builder;
 
 
-import com.maquinaturing.builder3.producto.ContadorSubida;
-import com.maquinaturing.builder3.producto.Programa;
+import com.maquinaturing.builder.producto.ContadorSubida;
+import com.maquinaturing.builder.producto.Programa;
 
 public class ContadorSubidaBuilder implements ProgramaBuilder {
     private ContadorSubida programa;

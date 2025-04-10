@@ -1,4 +1,4 @@
-package com.maquinaturing.protoype3.producto.abstracto;
+package com.maquinaturing.protoype.producto.abstracto;
 
 public abstract class ProgramaPrototype implements Cloneable {
 

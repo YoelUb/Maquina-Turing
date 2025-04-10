@@ -1,7 +1,7 @@
 package com.maquinaturing.app;
 
 import com.maquinaturing.abstractfactory.producto.abstracto.Programa;
-import com.maquinaturing.builder3.builder.ProgramaBuilder;
+import com.maquinaturing.builder.builder.ProgramaBuilder;
 import javafx.application.Application;
 import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.TextArea;
@@ -100,12 +100,12 @@ public class LauncherApp extends Application {
 
         ProgramaBuilder builder;
         if (resultado.get().equals("Contador de subida")) {
-            builder = new com.maquinaturing.builder3.builder.ContadorSubidaBuilder();
+            builder = new com.maquinaturing.builder.builder.ContadorSubidaBuilder();
         } else {
-            builder = new com.maquinaturing.builder3.builder.ContadorBajadaBuilder();
+            builder = new com.maquinaturing.builder.builder.ContadorBajadaBuilder();
         }
 
-        var director = new com.maquinaturing.builder3.director.ProgramaDirector();
+        var director = new com.maquinaturing.builder.director.ProgramaDirector();
         director.setBuilder(builder);
         var programa = director.construirPrograma();
 
@@ -137,13 +137,13 @@ public class LauncherApp extends Application {
 
         output.setText("Ejecutando Prototype...\n");
 
-        com.maquinaturing.protoype3.prototype.ProgramaPrototypeRegistry.registrar(
-                "subida", new com.maquinaturing.protoype3.producto.concreto.ContadorSubidaPrototype());
-        com.maquinaturing.protoype3.prototype.ProgramaPrototypeRegistry.registrar(
-                "bajada", new com.maquinaturing.protoype3.producto.concreto.ContadorBajadaPrototype());
+        com.maquinaturing.protoype.prototype.ProgramaPrototypeRegistry.registrar(
+                "subida", new com.maquinaturing.protoype.producto.concreto.ContadorSubidaPrototype());
+        com.maquinaturing.protoype.prototype.ProgramaPrototypeRegistry.registrar(
+                "bajada", new com.maquinaturing.protoype.producto.concreto.ContadorBajadaPrototype());
 
         String clave = resultado.get().toLowerCase().split(" ")[2];
-        var prototipo = com.maquinaturing.protoype3.prototype.ProgramaPrototypeRegistry.obtener(clave);
+        var prototipo = com.maquinaturing.protoype.prototype.ProgramaPrototypeRegistry.obtener(clave);
 
         if (prototipo == null) {
             output.appendText("Prototipo no encontrado.\n");

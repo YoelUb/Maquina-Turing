@@ -1,6 +1,6 @@
-package com.maquinaturing.protoype3.prototype;
+package com.maquinaturing.protoype.prototype;
 
-import com.maquinaturing.protoype3.producto.abstracto.ProgramaPrototype;
+import com.maquinaturing.protoype.producto.abstracto.ProgramaPrototype;
 
 import java.util.HashMap;
 import java.util.Map;

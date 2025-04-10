@@ -1,4 +1,4 @@
-package com.maquinaturing.builder3.producto;
+package com.maquinaturing.builder.producto;
 
 public class Reverser extends Programa {
     private String cadena = "";

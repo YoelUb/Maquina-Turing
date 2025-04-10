@@ -1,4 +1,4 @@
-package com.maquinaturing.builder3.producto;
+package com.maquinaturing.builder.producto;
 
 import java.util.concurrent.*;
 

@@ -1,7 +1,7 @@
-package com.maquinaturing.builder3.builder;
+package com.maquinaturing.builder.builder;
 
-import com.maquinaturing.builder3.producto.Reverser;
-import com.maquinaturing.builder3.producto.Programa;
+import com.maquinaturing.builder.producto.Reverser;
+import com.maquinaturing.builder.producto.Programa;
 
 public class ReverserBuilder implements ProgramaBuilder {
     private Reverser programa;

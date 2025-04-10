@@ -1,7 +1,7 @@
-package com.maquinaturing.builder3.director;
+package com.maquinaturing.builder.director;
 
-import com.maquinaturing.builder3.builder.ProgramaBuilder;
-import com.maquinaturing.builder3.producto.Programa;
+import com.maquinaturing.builder.builder.ProgramaBuilder;
+import com.maquinaturing.builder.producto.Programa;
 
 public class ProgramaDirector {
     private ProgramaBuilder builder;
