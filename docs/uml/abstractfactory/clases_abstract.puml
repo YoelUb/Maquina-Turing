@@ -1,0 +1,31 @@
+@startuml
+interface Programa {
+    +ejecutar(): void
+}
+
+interface HaltChecker {
+    +verificarParada(): boolean
+}
+
+abstract class ProgramaFactory {
+    +crearPrograma(): Programa
+    +crearHaltChecker(): HaltChecker
+}
+
+class ReverserFactory extends ProgramaFactory
+class ContadorSubidaFactory extends ProgramaFactory
+class ContadorBajadaFactory extends ProgramaFactory
+
+class Reverser implements Programa
+class ContadorSubida implements Programa
+class ContadorBajada implements Programa
+
+class HaltCheckerImpl implements HaltChecker
+
+
+
+
+
+
+
+@enduml

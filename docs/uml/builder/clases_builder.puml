@@ -1,0 +1,33 @@
+@startuml
+interface Programa {
+    +ejecutar(): void
+}
+
+interface ProgramaBuilder {
+    +buildPrograma(): void
+    +getPrograma(): Programa
+}
+
+class ReverserBuilder implements ProgramaBuilder
+class ContadorSubidaBuilder implements ProgramaBuilder
+class ContadorBajadaBuilder implements ProgramaBuilder
+
+class ProgramaDirector {
+    -builder: ProgramaBuilder
+    +setBuilder(ProgramaBuilder): void
+    +construirPrograma(): void
+}
+
+class Reverser implements Programa
+class ContadorSubida implements Programa
+class ContadorBajada implements Programa
+
+
+
+
+ProgramaDirector --> ProgramaBuilder
+ReverserBuilder --> Reverser
+ContadorSubidaBuilder --> ContadorSubida
+ContadorBajadaBuilder --> ContadorBajada
+
+@enduml

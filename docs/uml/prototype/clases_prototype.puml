@@ -1,0 +1,44 @@
+@startuml
+' Interfaces
+interface ProgramaPrototype {
+    +clonar(): ProgramaPrototype
+    +ejecutar(): void
+}
+
+interface HaltChecker {
+    +verificarParada(): boolean
+}
+
+' Clases concretas (prototipos)
+class ReverserPrototype implements ProgramaPrototype {
+    +clonar(): ProgramaPrototype
+    +ejecutar(): void
+}
+
+class ContadorSubidaPrototype implements ProgramaPrototype {
+    +clonar(): ProgramaPrototype
+    +ejecutar(): void
+}
+
+class ContadorBajadaPrototype implements ProgramaPrototype {
+    +clonar(): ProgramaPrototype
+    +ejecutar(): void
+}
+
+class HaltCheckerImpl implements HaltChecker {
+    +verificarParada(): boolean
+}
+
+' Registro de prototipos
+class ProgramaPrototypeRegistry {
+    -prototipos: Map<String, ProgramaPrototype>
+    +registrar(nombre: String, prototipo: ProgramaPrototype): void
+    +obtener(nombre: String): ProgramaPrototype
+}
+
+
+
+
+ProgramaPrototypeRegistry --> ProgramaPrototype : almacena y clona
+
+@enduml

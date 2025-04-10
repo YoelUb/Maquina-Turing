@@ -1,0 +1,22 @@
+@startuml
+package "Builder" {
+  [ProgramaBuilder]
+  [ReverserBuilder]
+  [ContadorSubidaBuilder]
+  [ContadorBajadaBuilder]
+  [ProgramaDirector]
+}
+
+package "Productos" {
+  [Reverser]
+  [ContadorSubida]
+  [ContadorBajada]
+}
+
+[ProgramaDirector] --> [ProgramaBuilder]
+
+[ReverserBuilder] --> [Reverser]
+[ContadorSubidaBuilder] --> [ContadorSubida]
+[ContadorBajadaBuilder] --> [ContadorBajada]
+
+@enduml
